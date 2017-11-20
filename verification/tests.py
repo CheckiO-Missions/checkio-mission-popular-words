@@ -1,36 +1,42 @@
-"""
-TESTS is a dict with all of your tests.
-Keys for this will be the categories' names.
-Each test is a dict with
-    "input" -- input data for a user function
-    "answer" -- your right answer
-    "explanation" -- not necessarily a key, it's used for an additional info in animation.
-"""
 
+TEXT = '''
+When I was One,
+I had just begun.
+When I was Two,
+I was nearly new.
+'''
+
+TEXT2 = '''It's flying from somewhere
+As fast as it can,
+I couldn't keep up with it,
+Not if I ran.'''
 
 TESTS = {
     "Basics": [
         {
-            "input": [3, 2],
-            "answer": 5,
-            "explanation": "3+2=?"
-        },
-        {
-            "input": [5, 7],
-            "answer": 12,
-            "explanation": "5+7=?"
+            "input": [TEXT, ['i', 'was', 'three']],
+            "answer": {
+                'i': 4,
+                'was': 3,
+                'three': 0
+            }
         }
     ],
     "Extra": [
         {
-            "input": [6, 3],
-            "answer": 9,
-            "explanation": "6+3=?"
+            "input": [TEXT, ['one', 'two', 'three']],
+            "answer": {
+                'one': 1,
+                'two': 1,
+                'three': 0
+            }
         },
         {
-            "input": [6, 7],
-            "answer": 13,
-            "explanation": "6+7=?"
+            "input": [TEXT2, ["it's", "ran"]],
+            "answer": {
+                "it's": 1,
+                "ran": 1
+            }
         }
     ]
 }
