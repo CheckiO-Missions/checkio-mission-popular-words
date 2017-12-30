@@ -24,11 +24,11 @@ TESTS = {
     ],
     "Extra": [
         {
-            "input": [TEXT, ['one', 'two', 'three']],
+            "input": [TEXT2, ['as', 'i', 'it']],
             "answer": {
-                'one': 1,
-                'two': 1,
-                'three': 0
+                'as': 2,
+                'i': 2,
+                'it': 2
             }
         },
         {
