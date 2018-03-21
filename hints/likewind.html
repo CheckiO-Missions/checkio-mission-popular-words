@@ -1,0 +1,111 @@
+<body data-author="likewind">
+
+<div class="question-answer">
+    <div class="question">
+        I have no idea how to start solving this mission.
+    </div>
+    <div class="answer">
+        You should create a dictionary, then count an amount of each word that we need
+        and add this information into dictionary.
+        Note that in this task uppercase and lowercase letters are equal.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Could you break this explanation into smaller steps?
+    </div>
+    <div class="answer">
+        First of all, try to convert all letters from the text into lowercase.
+        This is can help:
+        <a href='https://docs.python.org/3/library/stdtypes.html?highlight=lower#str.lower'>str.lower()</a>
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Can you show me how to use it?
+    </div>
+    <div class="answer">
+        Sure.
+        <pre class="brush: python">
+        text = text.lower()</pre>
+        For example:<br>
+        text = "When I was One"<br>
+        then we use the code above and get:<br>
+        "when i was one"<br>
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        I need some help to proceed with the mission.
+    </div>
+    <div class="answer">
+        Now it's time to create a dictionary. Use this:
+        <a href='https://docs.python.org/3/tutorial/datastructures.html?highlight=dictionary#dictionaries'>Dictionaries</a>
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Nothing works... Help!
+    </div>
+    <div class="answer">
+        Your code may look like this:
+        <pre class="brush: python">
+        text = text.lower()
+        answer = {}</pre>
+        Yes, so simple.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Emmm... What's next?
+    </div>
+    <div class="answer">
+        Just count the amount of each word and you are done! Use
+        <a href='https://docs.python.org/3/library/stdtypes.html?highlight=count#str.count'>str.count()</a> method.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        I'm halfway through. Need help!
+    </div>
+    <div class="answer">
+        If we want to count an amount of 'i', we type:
+        <pre class="brush: python">
+        answer['i'] = text.count('i')</pre>
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        But we need to count not only 'i'. What should I do?
+    </div>
+    <div class="answer">
+        Use
+        <a href='https://www.tutorialspoint.com/python/python_for_loop.htm'>'for' loop</a>.
+        to make this for each word in our start list of words.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        And the final answer is...
+    </div>
+    <div class="answer">
+        Full code is:
+        <pre class="brush: python">
+          def popular_words(text, words):
+              text = text.lower()
+              answer = {}
+              for word in words:
+                  answer[word] = text.count(word)
+              return answer</pre>
+    </div>
+</div>
+
+</body>
