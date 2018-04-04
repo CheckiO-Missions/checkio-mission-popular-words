@@ -7,65 +7,15 @@
     <div class="answer">
         Вам необходимо создать словарь, затем посчитать количество каждого слова в исходном тексте (из тех, 
         что мы ищем согласно исходным данным) и добавить эту информацию в созданный словарь.
-        Обратите внимание, что в этом задании регистр букв не играет роли ('When' == 'when').
     </div>
 </div>
 
 <div class="question-answer">
     <div class="question">
-        Как я могу учесть эту информацию - об эквивалентности больших и малых букв?
+        Как посчитать количество конкретного слова в тексте?
     </div>
     <div class="answer">
-        Вы можете в исходном тексте преобразовать все буквы верхнего регистра в буквы нижнего.
-        Это должно помочь:
-        <a href='https://docs.python.org/3/library/stdtypes.html?highlight=lower#str.lower'>str.lower()</a>
-    </div>
-</div>
-
-<div class="question-answer">
-    <div class="question">
-        Вы могли бы показать, как этим пользоваться?
-    </div>
-    <div class="answer">
-        Конечно.
-        <pre class="brush: python">
-text = text.lower()</pre>
-        Например:<br>
-        Исходный текст: text = "When I was One"<br>
-        Затем мы применяем метод lower() и получаем:<br>
-        "when i was one"<br>
-    </div>
-</div>
-
-<div class="question-answer">
-    <div class="question">
-        Теперь мне нужно создать словарь?
-    </div>
-    <div class="answer">
-        Совершенно верно. Используйте это:
-        <a href='https://docs.python.org/3/tutorial/datastructures.html?highlight=dictionary#dictionaries'>Dictionaries</a>
-    </div>
-</div>
-
-<div class="question-answer">
-    <div class="question">
-        Ничего не получается. Мне нужна помощь!
-    </div>
-    <div class="answer">
-        Ваш код на данном этапе может выглядеть так:
-        <pre class="brush: python">
-text = text.lower()
-answer = {}</pre>
-        Да, так просто.
-    </div>
-</div>
-
-<div class="question-answer">
-    <div class="question">
-        Ок. Что дальше?
-    </div>
-    <div class="answer">
-        Теперь осталось всего лишь посчитать, сколько раз интересующие нас слова встречаются в исходном тексте. Используйте
+        Используйте метод
         <a href='https://docs.python.org/3/library/stdtypes.html?highlight=count#str.count'>str.count()</a>.
     </div>
 </div>
@@ -88,8 +38,34 @@ answer['one'] = text.count('one')</pre>
         Но ведь нам нужно посчитать не только количество 'one'. Что делать с остальными словами?
     </div>
     <div class="answer">
-        Для перебора остальных слов из исходного списка, используйте цикл 'for'
-        <a href='https://www.tutorialspoint.com/python/python_for_loop.htm'>'for' loop</a>.
+        Для перебора остальных слов из исходного списка, используйте
+        <a href='https://docs.python.org/3/tutorial/controlflow.html#for-statements'>'for' loop</a>.
+    </div>
+</div>
+    
+<div class="question-answer">
+    <div class="question">
+        Что делать, если функция считает, что 'when' не равно 'When'?
+    </div>
+    <div class="answer">
+        Вы можете в исходном тексте преобразовать все буквы верхнего регистра в буквы нижнего.
+        Это должно помочь:
+        <a href='https://docs.python.org/3/library/stdtypes.html?highlight=lower#str.lower'>str.lower()</a>
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Вы могли бы показать, как этим пользоваться?
+    </div>
+    <div class="answer">
+        Конечно.
+        <pre class="brush: python">
+text = text.lower()</pre>
+        Например:<br>
+        Исходный текст: text = "When I was One"<br>
+        Затем мы применяем метод lower() и получаем:<br>
+        "when i was one"<br>
     </div>
 </div>
 
