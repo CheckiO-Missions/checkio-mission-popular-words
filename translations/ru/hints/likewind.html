@@ -29,7 +29,7 @@
     <div class="answer">
         Конечно.
         <pre class="brush: python">
-        text = text.lower()</pre>
+text = text.lower()</pre>
         Например:<br>
         Исходный текст: text = "When I was One"<br>
         Затем мы применяем метод lower() и получаем:<br>
@@ -54,8 +54,8 @@
     <div class="answer">
         Ваш код на данном этапе может выглядеть так:
         <pre class="brush: python">
-        text = text.lower()
-        answer = {}</pre>
+text = text.lower()
+answer = {}</pre>
         Да, так просто.
     </div>
 </div>
@@ -77,7 +77,7 @@
     <div class="answer">
         Если нам нужно посчитать количество слов 'one', нужно набрать:
         <pre class="brush: python">
-        answer['one'] = text.count('one')</pre>
+answer['one'] = text.count('one')</pre>
         Это создаст внутри словаря answer ключ 'one' и присвоит ему значение, которое будет показывать, сколько раз
         слово 'one' встречается в исходном тексте.
     </div>
@@ -100,12 +100,12 @@
     <div class="answer">
         Готовый ответ выглядит так:
         <pre class="brush: python">
-          def popular_words(text, words):
-              text = text.lower()
-              answer = {}
-              for word in words:
-                  answer[word] = text.count(word)
-              return answer</pre>
+def popular_words(text, words):
+    text = text.lower()
+    answer = {}
+    for word in words:
+        answer[word] = text.count(word)
+    return answer</pre>
     </div>
 </div>
 
