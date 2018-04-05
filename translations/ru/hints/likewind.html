@@ -12,23 +12,15 @@
 
 <div class="question-answer">
     <div class="question">
-        Как посчитать количество конкретного слова в тексте?
-    </div>
-    <div class="answer">
-        Используйте метод
-        <a href='https://docs.python.org/3/library/stdtypes.html?highlight=count#str.count'>str.count()</a>.
-    </div>
-</div>
-
-<div class="question-answer">
-    <div class="question">
-        Я не знаю, как добавить эту информацию в словарь.
+        Я не знаю, как посчитать слова и добавить эту информацию в словарь.
     </div>
     <div class="answer">
         Если нам нужно посчитать количество слов 'one', нужно набрать:
         <pre class="brush: python">
-answer = {}
-answer['one'] = text.count('one')</pre>
+def popular_words(text, words):
+    answer = {}
+    answer['one'] = text.count('one')
+    return answer</pre>
         Это создаст внутри словаря answer ключ 'one' и присвоит ему значение, которое будет показывать, сколько раз
         слово 'one' встречается в исходном тексте.
     </div>
@@ -36,7 +28,7 @@ answer['one'] = text.count('one')</pre>
 
 <div class="question-answer">
     <div class="question">
-        Но ведь нам нужно посчитать не только количество 'one'. Что делать с остальными словами?
+        Но ведь нам нужно посчитать не только количество слова 'one'. Что делать с остальными словами?
     </div>
     <div class="answer">
         Для перебора остальных слов из исходного списка, используйте
@@ -46,27 +38,31 @@ answer['one'] = text.count('one')</pre>
     
 <div class="question-answer">
     <div class="question">
-        Что делать, если функция считает, что 'when' не равно 'When'?
+        Вы могли бы показать, как именно это осуществить?
     </div>
     <div class="answer">
-        Вы можете в исходном тексте преобразовать все буквы верхнего регистра в буквы нижнего.
-        Это должно помочь:
-        <a href='https://docs.python.org/3/library/stdtypes.html?highlight=lower#str.lower'>str.lower()</a>
+        Код, написанный ранее, меняем следующим образом:
+        <pre class="brush: python">
+def popular_words(text, words):
+    answer = {}
+    for word in words:
+        answer[word] = text.count(word)
+    return answer</pre>
+        В этом случае в итоговый словарь 'answer' в качестве ключей добавятся все слова, количество которых мы считаем, 
+        согласно исходному списку 'words', а в качестве значений к этим ключам - их количество в 'text'.
     </div>
 </div>
-
+    
 <div class="question-answer">
     <div class="question">
-        Вы могли бы показать, как этим пользоваться?
+        Что делать, если ответ все равно получается неправильным?
     </div>
     <div class="answer">
-        Конечно.
-        <pre class="brush: python">
-text = text.lower()</pre>
-        Например:<br>
-        Исходный текст: text = "When I was One"<br>
-        Затем мы применяем метод lower() и получаем:<br>
-        "when i was one"<br>
+        Скорее всего вы не учли, что в исходном тексте есть слова, написанные буквами и верхнего, и нижнего регистра.
+        Чтобы функция возвращала верный результат - в исходном тексте необходимо преобразовать все буквы верхнего
+        регистра в буквы нижнего.
+        В этой ситуации поможет
+        <a href='https://docs.python.org/3/library/stdtypes.html#str.lower'>метод str.lower()</a>.
     </div>
 </div>
 
