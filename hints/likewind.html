@@ -1,0 +1,85 @@
+<body data-author="likewind">
+
+<div class="question-answer">
+    <div class="question">
+        I'm completely out of ideas. Help me!
+    </div>
+    <div class="answer">
+        You need to create a dictionary, then calculate the number of each word in the input text (those that 
+        we are looking for according to the given data) and add this information to the created dictionary.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        I don't know how to count the words and add this information to the dictionary.
+    </div>
+    <div class="answer">
+        If we want to count the number of words 'one' then we need to type:
+        <pre class="brush: python">
+def popular_words(text, words):
+    answer = {}
+    answer['one'] = text.count('one')
+    return answer</pre>
+        This will create a "one" answer key inside the dictionary and assign to it a value that shows how many times
+        the word 'one' appears in the input text.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        But we need to count not only the number of the word 'one'. What should I do with the rest of the words?
+    </div>
+    <div class="answer">
+        To search for other words from the given list use
+        <a href='https://docs.python.org/3/tutorial/controlflow.html#for-statements'>'for' loop</a>.
+    </div>
+</div>
+    
+<div class="question-answer">
+    <div class="question">
+        Could you show exactly how to do this?
+    </div>
+    <div class="answer">
+        The code written earlier we are changing in the following way:
+        <pre class="brush: python">
+def popular_words(text, words):
+    answer = {}
+    for word in words:
+        answer[word] = text.count(word)
+    return answer</pre>
+        In this case, all the words that we need to count according to the given 'words' list will be added as keys to the output 'answer' dictionary, 
+        as well as the number of these words will be added as the keys values to the 'text'.
+    </div>
+</div>
+    
+<div class="question-answer">
+    <div class="question">
+        What should I do if the answer still turns out to be wrong?
+    </div>
+    <div class="answer">
+        Most likely you didn't consider that the input text contains both the uppercase and lowercase letters.
+        In order for the function to return the correct result - you need to convert all of the uppercase letters in the input text 
+        to the lowercase letters.
+        The
+        <a href='https://docs.python.org/3/library/stdtypes.html#str.lower'>str.lower() method</a> will help the situation.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        I still need to see the full version of the code, otherwise I can't figure it out...
+    </div>
+    <div class="answer">
+        The answer looks like this:
+        <pre class="brush: python">
+def popular_words(text, words):
+    text = text.lower()
+    answer = {}
+    for word in words:
+        answer[word] = text.count(word)
+    return answer</pre>
+    </div>
+</div>
+
+</body>
