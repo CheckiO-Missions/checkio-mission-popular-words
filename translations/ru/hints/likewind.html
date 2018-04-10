@@ -68,10 +68,10 @@ def popular_words(text, words):
 
 <div class="question-answer">
     <div class="question">
-        Мне все же нужно увидеть полную версию кода, иначе не разобраться...
+        Как именно пользоваться этим методом?
     </div>
     <div class="answer">
-        Готовый ответ выглядит так:
+        Нужно добавить в код строчку:
         <pre class="brush: python">
 def popular_words(text, words):
     text = text.lower()
@@ -81,5 +81,75 @@ def popular_words(text, words):
     return answer</pre>
     </div>
 </div>
+    
+<div class="question-answer">
+    <div class="question">
+        Почему в тексте "I love it!" функция выдает 'i': 2 вместо 'i': 1?
+    </div>
+    <div class="answer">
+        Это происходит потому, что буква 'i' входит в слово 'it' и функция считает, что слово 'it' тоже удовлетворяет критериям
+        поиска. Чтобы избежать этого, необходимо разбить весь текст на отдельные слова с помощью
+        <a href='https://docs.python.org/3/library/stdtypes.html#str.split'>метода split()</a>.
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        Как изменится код после этого?
+    </div>
+    <div class="answer">
+        На данном этапе функция будет выглядеть так:
+         <pre class="brush: python">
+def popular_words(text, words):
+    text = text.lower()
+    splited_words = text.split()
+    answer = {}
+    for word in words:
+        answer[word] = splited_words.count(word)
+    return answer</pre>
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        Что делать, если некоторые слова в списке выглядят как 'one!' или 'one.' и не считаются за 'one'?
+    </div>
+    <div class="answer">
+        Похоже, вы забыли убрать из текста лишние символы - знаки препинания ('.', ',', '!', '?'). В этом вам поможет
+        <a href='https://docs.python.org/3/library/stdtypes.html#str.replace'метод str.replace()</a>.
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        Как мне интегрировать этот метод в существующий код?
+    </div>
+    <div class="answer">
+        Вам нужно заменить знаки препинания на пробелы - ' ' (но не на пустые строки - '', чтобы не допустить слияния слов
+        в одно, например - 'hello.I am'.replace('.', '') --> 'helloI am'). Поэтому ваш код будет выглядеть так:
+         <pre class="brush: python">
+def popular_words(text, words):
+    text = text.replace(',', ' ')
+    text = text.replace('.', ' ')
+    text = text.replace('!', ' ')
+    text = text.replace('?', ' ')
+    text = text.lower()
+    splited_words = text.split()
+    answer = {}
+    for word in words:
+        answer[word] = splited_words.count(word)
+    return answer</pre>
+        Это же можно записать чуть меньшим количеством строк:
+         <pre class="brush: python">
+def popular_words(text, words):
+    text = text.replace(',', ' ').replace('.', ' ').replace('!', ' ').replace('?', ' ')
+    text = text.lower()
+    splited_words = text.split()
+    answer = {}
+    for word in words:
+        answer[word] = splited_words.count(word)
+    return answer</pre>
+    </div>
+</div>    
 
 </body>
