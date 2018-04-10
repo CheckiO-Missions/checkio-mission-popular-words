@@ -12,24 +12,63 @@
 
 <div class="question-answer">
     <div class="question">
-        Я не знаю, как посчитать слова и добавить эту информацию в словарь.
+        Давайте по-порядку.
     </div>
     <div class="answer">
-        Если нам нужно посчитать количество слов 'one', нужно набрать:
-        <pre class="brush: python">
-def popular_words(text, words):
-    answer = {}
-    answer['one'] = text.count('one')
-    return answer</pre>
-        Это создаст внутри словаря answer ключ 'one' и присвоит ему значение, которое будет показывать, сколько раз
-        слово 'one' встречается в исходном тексте.
+        Сперва необходимо разделить исходный текст на отдельные слова. Для этого можно использовать 
+        <a href='https://docs.python.org/3/library/stdtypes.html#str.split'>метод split()</a>. 
+        Если этого не сделать, могут возникнуть ошибки подсчета, когда, например 'I am alive'.count('a') 
+        возвращает значение 2, так как буква 'a' дважды входит в состав других слов, хотя отдельного слова 'a' 
+        в этой строке нет.
     </div>
-</div>
+</div>    
 
 <div class="question-answer">
     <div class="question">
-        Что делать, если рядом с некоторыми словами находятся знаки препинания, например 'one!' или 'one.' и они 
-        не считаются за 'one'?
+        Как это будет выглядеть в коде?
+    </div>
+    <div class="answer">
+        На данном этапе функция будет выглядеть так:
+         <pre class="brush: python">
+def popular_words(text, words):
+    splitted_words = text.split()</pre>
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        Как посчитать в получившемся списке количество слов, которые мы ищем и добавить эту информацию в словарь?
+    </div>
+    <div class="answer">
+        Для подсчета количества каждого слова из исходного списка 'words' необходимо использовать
+        <a href='https://docs.python.org/3/tutorial/controlflow.html#for-statements'>'for' loop</a>. О подсчете с помощью
+        метода 'count' вы сможете прочесть подробнее в перечне 
+        <a href='https://docs.python.org/3.6/tutorial/datastructures.html#more-on-lists'>методов работы со списками</a>
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        Как эти методы реализовать в коде?
+    </div>
+    <div class="answer">
+        Обновленная функция будет выглядеть так:
+        <pre class="brush: python">
+def popular_words(text, words):
+    splitted_words = text.split()
+    answer = {}
+    for word in words:
+        answer[word] = splitted_words.count(word)
+    return answer</pre>
+        Это создаст внутри словаря answer ключи со словами из списка 'words' и присвоит им значения, которые будут показывать, 
+        сколько раз каждое из слов встречается в исходном тексте, поделенном на слова (splitted_words).
+    </div>
+</div>    
+    
+<div class="question-answer">
+    <div class="question">
+        Что делать, если рядом с некоторыми словами находятся знаки препинания, например 'one!' или 'one.' и такие слова 
+        не считаются эквивалентными 'one'?
     </div>
     <div class="answer">
         Необходимо убрать из текста лишние символы - знаки препинания ('.', ',', '!', '?'). В этом вам поможет
@@ -46,19 +85,23 @@ def popular_words(text, words):
         в одно, например - 'hello.I am'.replace('.', '') --> 'helloI am'). Поэтому ваш код будет выглядеть так:
          <pre class="brush: python">
 def popular_words(text, words):
+    splitted_words = text.split()
     text = text.replace(',', ' ')
     text = text.replace('.', ' ')
     text = text.replace('!', ' ')
     text = text.replace('?', ' ')
     answer = {}
-    answer['one'] = text.count('one')
+    for word in words:
+        answer[word] = splitted_words.count(word)
     return answer</pre>
         Это же можно записать чуть меньшим количеством строк:
          <pre class="brush: python">
 def popular_words(text, words):
+    splitted_words = text.split()
     text = text.replace(',', ' ').replace('.', ' ').replace('!', ' ').replace('?', ' ')
     answer = {}
-    answer['one'] = text.count('one')
+    for word in words:
+        answer[word] = splitted_words.count(word)
     return answer</pre>
     </div>
 </div>        
@@ -79,68 +122,12 @@ def popular_words(text, words):
         Как именно пользоваться этим методом?
     </div>
     <div class="answer">
-        Нужно добавить в код строчку:
+        Нужно добавить в код соответствующую строчку, после чего он станет таким:
         <pre class="brush: python">
 def popular_words(text, words):
-    text = text.replace(',', ' ').replace('.', ' ').replace('!', ' ').replace('?', ' ')
-    text = text.lower()
-    answer = {}
-    answer['one'] = text.count('one')
-    return answer</pre>
-    </div>
-</div>
-    
-<div class="question-answer">
-    <div class="question">
-        Что делать дальше?
-    </div>
-    <div class="answer">
-        Теперь пришло время использовать 
-        <a href='https://docs.python.org/3/library/stdtypes.html#str.split'>метод split()</a>. 
-        Он поделит исходный текст на отдельные слова и вы сможете среди них посчитать количество нужных. Если этого не сделать,
-        могут возникнуть ошибки подсчета, когда, например 'I am alive'.count('a') возвращает значение 2, так как буква 'a'
-        дважды входит в состав других слов, хотя отдельного слова 'a' в этой строке нет.
-    </div>
-</div>    
-
-<div class="question-answer">
-    <div class="question">
-        Как изменится код после этого?
-    </div>
-    <div class="answer">
-        На данном этапе функция будет выглядеть так:
-         <pre class="brush: python">
-def popular_words(text, words):
-    text = text.replace(',', ' ').replace('.', ' ').replace('!', ' ').replace('?', ' ')
-    text = text.lower()
     splitted_words = text.split()
-    answer = {}
-    answer['one'] = splitted_words.count('one')
-    return answer</pre>
-    </div>
-</div>    
-
-<div class="question-answer">
-    <div class="question">
-        Но ведь нам нужно посчитать не только количество слова 'one'. Что делать с остальными словами?
-    </div>
-    <div class="answer">
-        Для перебора остальных слов из исходного списка, используйте
-        <a href='https://docs.python.org/3/tutorial/controlflow.html#for-statements'>'for' loop</a>.
-    </div>
-</div>
-    
-<div class="question-answer">
-    <div class="question">
-        Вы могли бы показать, как именно это осуществить?
-    </div>
-    <div class="answer">
-        Код, написанный ранее, меняем следующим образом:
-        <pre class="brush: python">
-def popular_words(text, words):
     text = text.replace(',', ' ').replace('.', ' ').replace('!', ' ').replace('?', ' ')
     text = text.lower()
-    splitted_words = text.split()
     answer = {}
     for word in words:
         answer[word] = splitted_words.count(word)
