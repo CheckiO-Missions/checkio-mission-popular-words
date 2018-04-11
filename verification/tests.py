@@ -1,35 +1,35 @@
 
 TEXT = '''
-When I was One,
-I had just begun.
-When I was Two,
-I was nearly new.
+When I was One
+I had just begun
+When I was Two
+I was nearly new
 '''
 
 TEXT2 = '''It's flying from somewhere
-As fast as it can,
-I couldn't keep up with it,
-Not if I ran.'''
+As fast as it can
+I couldn't keep up with it
+Not if I ran'''
 
-TEXT3 = '''And the Raven, never flitting, still is sitting, still is sitting
-On the pallid bust of Pallas just above my chamber door,
-And his eyes have all the seeming of a demon’s that is dreaming,
-And the lamp-light o’er him streaming throws his shadow on the floor,
+TEXT3 = '''And the Raven never flitting still is sitting still is sitting
+On the pallid bust of Pallas just above my chamber door
+And his eyes have all the seeming of a demon’s that is dreaming
+And the lamp-light o’er him streaming throws his shadow on the floor
 And my soul from out that shadow that lies floating on the floor
-Shall be lifted nevermore!'''
+Shall be lifted nevermore'''
 
-TEXT4 = '''Shall I go to the cinema?
-No, you shouldn't!'''
+TEXT4 = '''I will go to the cinema
+No you will not'''
 
 TESTS = {
     "Basics": [
         {
-            "input": [TEXT, ['i', 'was', 'three', 'o']],
+            "input": [TEXT, ['i', 'was', 'three', 'near']],
             "answer": {
                 'i': 4,
                 'was': 3,
                 'three': 0,
-                'o': 0
+                'near': 0
             }
         }
     ],
@@ -61,11 +61,11 @@ TESTS = {
             }
         },
         {
-            "input": [TEXT4, ["i", "you", "o"]],
+            "input": [TEXT4, ["i", "will", "no"]],
             "answer": {
                 "i": 1,
-                "you": 1,
-                "o": 0
+                "will": 2,
+                "no": 1
             }
         }
     ]
