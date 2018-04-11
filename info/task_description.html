@@ -11,7 +11,6 @@
 <p>When solving this task pay attention to the following points:</p>
 
 <ul>
-    <li>The text can consist of multiple lines with punctuation.</li>
     <li>The words should be sought in all registers. This means that if you need to find a word "one" then words like "one", "One", "oNe", "ONE" etc. will do.</li>
     <li>The search words are always indicated in the lowercase.</li>
     <li>If the word wasn’t found even once, it has to be returned in the dictionary with  0 (zero) value.</li>
@@ -35,27 +34,35 @@
     </p>
 
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">popularWords('When I was One, \n\
-I had just begun.\n\
-When I was Two,\n\
-I was nearly new.', ['i', 'was', 'three']) == {
+<pre class="brush: javascript">popularWords('When I was One \n\
+I had just begun\n\
+When I was Two\n\
+I was nearly new', ['i', 'was', 'three', 'near']) == {
     'i': 4,
     'was': 3,
-    'three': 0
+    'three': 0,
+    'near': 0
 }
 </pre>
 {% else %}
 <pre class="brush: python">popular_words('''
-When I was One,
-I had just begun.
-When I was Two,
-I was nearly new.
-''', ['i', 'was', 'three']) == {
+When I was One
+I had just begun
+When I was Two
+I was nearly new
+''', ['i', 'was', 'three', 'near']) == {
     'i': 4,
     'was': 3,
-    'three': 0
+    'three': 0,
+    'near': 0
 }
 
 </pre>
 {% endif %}
 </div>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p><strong>Precondition</strong>:<br>
+    The input text will consists of English letters in uppercase and lowercase and whitespaces.
+</p>
