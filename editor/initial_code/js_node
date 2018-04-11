@@ -8,17 +8,17 @@ function popularWords(text, words) {
 var assert = require('assert');
 if (!global.is_checking) {
     console.log('Example:')
-    console.log(popularWords('
-    When I was One
-    I had just begun
-    When I was Two
+    console.log(popularWords('\n\
+    When I was One\n\
+    I had just begun\n\
+    When I was Two\n\
     I was nearly new', ['i', 'was', 'three', 'near']))
 
     // These "asserts" are used for self-checking and not for an auto-testing
-    assert.equal(popularWords('
-    When I was One
-    I had just begun
-    When I was Two
+    assert.deepEqual(popularWords('\n\
+    When I was One\n\
+    I had just begun\n\
+    When I was Two\n\
     I was nearly new', ['i', 'was', 'three', 'near']), {
         'i': 4,
         'was': 3,
