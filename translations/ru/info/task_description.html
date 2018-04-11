@@ -9,7 +9,6 @@
 <p>При решении этой задачи обратите внимание на следующие моменты</p>
 
 <ul>
-    <li>Текст может быть многострочным и со знаками препинания</li>
     <li>Слова необходимо искать во всеx регистрах. Т.е. если необходимо найти слово "one", значит для него будут подходить слова "one", "One", "oNe", "ONE" и.т.д.</li>
     <li>Искомые слова всегда указаны в нижнем регистре</li>
     <li>Если слово не найдено ни разу, то его необходимо вернуть в словаре со значением 0 (ноль)</li>
@@ -32,27 +31,35 @@
     </p>
 
 {% if interpreter.slug == "js-node" %}
-<pre class="brush: javascript">popularWords('When I was One, \n\
-I had just begun.\n\
-When I was Two,\n\
-I was nearly new.', ['i', 'was', 'three']) == {
+<pre class="brush: javascript">popularWords('When I was One \n\
+I had just begun\n\
+When I was Two\n\
+I was nearly new', ['i', 'was', 'three', 'near']) == {
     'i': 4,
     'was': 3,
-    'three': 0
+    'three': 0,
+    'near': 0
 }
 </pre>
 {% else %}
 <pre class="brush: python">popular_words('''
-When I was One,
-I had just begun.
-When I was Two,
-I was nearly new.
-''', ['i', 'was', 'three']) == {
+When I was One
+I had just begun
+When I was Two
+I was nearly new
+''', ['i', 'was', 'three', 'near']) == {
     'i': 4,
     'was': 3,
-    'three': 0
+    'three': 0,
+    'near': 0
 }
 
 </pre>
 {% endif %}
 </div>
+
+<!-- Here you can explain some constraints for input-->
+<!-- The section is optional -->
+<p><strong>Предусловия</strong>:<br>
+    Исходный текст будет состоять из букв английского алфавита в верхнем и нижнем регистре, а также пробелов.
+</p>
