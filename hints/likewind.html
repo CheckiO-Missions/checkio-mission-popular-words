@@ -5,81 +5,92 @@
         I'm completely out of ideas. Help me!
     </div>
     <div class="answer">
-        You need to create a dictionary, then calculate the number of each word in the input text (those that 
-        we are looking for according to the given data) and add this information to the created dictionary.
+        You need to break the input text into single words and calculate the number of each word (that we are looking for 
+        according to the given data) in the resulted list of words. Then you need to create a dictionary and add the information to it.
     </div>
 </div>
 
 <div class="question-answer">
     <div class="question">
-        I don't know how to count the words and add this information to the dictionary.
+        OK, let's start from the beginning.
     </div>
     <div class="answer">
-        If we want to count the number of words 'one' then we need to type:
-        <pre class="brush: python">
-def popular_words(text, words):
-    answer = {}
-    answer['one'] = text.count('one')
-    return answer</pre>
-        This will create a "one" answer key inside the dictionary and assign to it a value that shows how many times
-        the word 'one' appears in the input text.
+        First of all, you need to break the input text into single words. For this you can use the 
+        <a href='https://docs.python.org/3/library/stdtypes.html#str.split'>split() method</a>.
     </div>
-</div>
+</div>    
 
 <div class="question-answer">
     <div class="question">
-        But we need to count not only the number of the word 'one'. What should I do with the rest of the words?
+        How will it look like in code?
     </div>
     <div class="answer">
-        To search for other words from the given list use
-        <a href='https://docs.python.org/3/tutorial/controlflow.html#for-statements'>'for' loop</a>.
+        At this stage, the function will be as follows:
+         <pre class="brush: python">
+def popular_words(text, words):
+    splitted_words = text.split()</pre>
+       In practice, this method will work in the following way: 'I am alive'.split() --> ['I', 'am', 'alive']
     </div>
-</div>
-    
+</div>    
+
 <div class="question-answer">
     <div class="question">
-        Could you show exactly how to do this?
+        How to count in the resulting list the number of words that we are looking for and add this information to the dictionary?
     </div>
     <div class="answer">
-        The code written earlier we are changing in the following way:
+        To count the number of each word from the input 'words' list, you must use
+        <a href='https://docs.python.org/3/tutorial/controlflow.html#for-statements'>'for' loop</a>. You can read more about 
+        the calculation with the 'count' method in the following catalogue of 
+        <a href='https://docs.python.org/3.6/tutorial/datastructures.html#more-on-lists'>methods of working with lists</a>.
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        How to implement these methods in code?
+    </div>
+    <div class="answer">
+        The updated function will look like this:
         <pre class="brush: python">
 def popular_words(text, words):
+    splitted_words = text.split()
     answer = {}
     for word in words:
-        answer[word] = text.count(word)
+        answer[word] = splitted_words.count(word)
     return answer</pre>
-        In this case, all the words that we need to count according to the given 'words' list will be added as keys to the output 'answer' dictionary, 
-        as well as the number of these words will be added as the keys values to the 'text'.
+        This will create the answer keys inside the dictionary with words from the 'words' list, and assign them values that will show 
+        how many times each word is found in the input text broken into single words (splitted_words).
     </div>
-</div>
+</div>    
     
 <div class="question-answer">
     <div class="question">
-        What should I do if the answer still turns out to be wrong?
+        What to do if "one" and "One" are considered to be different words?
     </div>
     <div class="answer">
-        Most likely you didn't consider that the input text contains both the uppercase and lowercase letters.
-        In order for the function to return the correct result - you need to convert all of the uppercase letters in the input text 
-        to the lowercase letters.
-        The
-        <a href='https://docs.python.org/3/library/stdtypes.html#str.lower'>str.lower() method</a> will help the situation.
+        You need to replace all of the uppercase letters in the input text with the lowercase letters.
+        In this situation will help the
+        <a href='https://docs.python.org/3/library/stdtypes.html#str.lower'>str.lower() method</a>.
     </div>
 </div>
 
 <div class="question-answer">
     <div class="question">
-        I still need to see the full version of the code, otherwise I can't figure it out...
+        How will the whole function look like?
     </div>
     <div class="answer">
-        The answer looks like this:
+        After adding the corresponding string, code will look like this:
         <pre class="brush: python">
 def popular_words(text, words):
     text = text.lower()
+    splitted_words = text.split()
     answer = {}
     for word in words:
-        answer[word] = text.count(word)
+        answer[word] = splitted_words.count(word)
     return answer</pre>
+        Note that you must first convert all of the uppercase letters to the lowercase letters in the text,
+        and then break it into the single words.
     </div>
 </div>
-
+    
 </body>
