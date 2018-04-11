@@ -5,8 +5,9 @@
         У меня совершенно нет идей. Помогите!
     </div>
     <div class="answer">
-        Вам необходимо создать словарь, затем посчитать количество каждого слова в исходном тексте (из тех, 
-        что мы ищем согласно исходным данным) и добавить эту информацию в созданный словарь.
+        Вам необходимо разбить исходный текст на отдельные слова и посчитать количество каждого слова (из тех, 
+        что мы ищем согласно исходным данным) в получившемся списке слов, а затем создать словарь и добавить 
+        эту информацию в него.
     </div>
 </div>
 
@@ -32,6 +33,7 @@
          <pre class="brush: python">
 def popular_words(text, words):
     splitted_words = text.split()</pre>
+        На практике этот метод будет работать следующим образом: 'I am alive'.split() --> ['I', 'am', 'alive']
     </div>
 </div>    
 
@@ -67,47 +69,6 @@ def popular_words(text, words):
     
 <div class="question-answer">
     <div class="question">
-        Что делать, если рядом с некоторыми словами находятся знаки препинания, например 'one!' или 'one.' и такие слова 
-        не считаются эквивалентными 'one'?
-    </div>
-    <div class="answer">
-        Необходимо убрать из текста лишние символы - знаки препинания ('.', ',', '!', '?'). В этом вам поможет
-        <a href='https://docs.python.org/3/library/stdtypes.html#str.replace'>метод str.replace()</a>.
-    </div>
-</div>
-
-<div class="question-answer">
-    <div class="question">
-        Как мне интегрировать этот метод в существующий код?
-    </div>
-    <div class="answer">
-        Вам нужно заменить знаки препинания на пробелы - ' ' (но не на пустые строки - '', чтобы не допустить слияния слов
-        в одно, например - 'hello.I am'.replace('.', '') --> 'helloI am'). Поэтому ваш код будет выглядеть так:
-         <pre class="brush: python">
-def popular_words(text, words):
-    splitted_words = text.split()
-    text = text.replace(',', ' ')
-    text = text.replace('.', ' ')
-    text = text.replace('!', ' ')
-    text = text.replace('?', ' ')
-    answer = {}
-    for word in words:
-        answer[word] = splitted_words.count(word)
-    return answer</pre>
-        Это же можно записать чуть меньшим количеством строк:
-         <pre class="brush: python">
-def popular_words(text, words):
-    splitted_words = text.split()
-    text = text.replace(',', ' ').replace('.', ' ').replace('!', ' ').replace('?', ' ')
-    answer = {}
-    for word in words:
-        answer[word] = splitted_words.count(word)
-    return answer</pre>
-    </div>
-</div>        
-
-<div class="question-answer">
-    <div class="question">
         Что делать, если 'one' и 'One' считаются разными словами?
     </div>
     <div class="answer">
@@ -119,19 +80,20 @@ def popular_words(text, words):
 
 <div class="question-answer">
     <div class="question">
-        Как именно пользоваться этим методом?
+        Как будет выглядеть функция полностью?
     </div>
     <div class="answer">
-        Нужно добавить в код соответствующую строчку, после чего он станет таким:
+        После добавления соответствующей строчки, код станет таким:
         <pre class="brush: python">
 def popular_words(text, words):
-    splitted_words = text.split()
-    text = text.replace(',', ' ').replace('.', ' ').replace('!', ' ').replace('?', ' ')
     text = text.lower()
+    splitted_words = text.split()
     answer = {}
     for word in words:
         answer[word] = splitted_words.count(word)
     return answer</pre>
+        Обратите внимание, что необходимо сперва преобразовать в тексте все буквы верхнего регистра в нижний,
+        а затем делить на отдельные слова.
     </div>
 </div>
     
