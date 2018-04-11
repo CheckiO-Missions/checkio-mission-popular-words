@@ -13,7 +13,7 @@ api.add_listener(
         tests=TESTS,
         function_name={
             "python": "popular_words",
-            "js": "popularЦords"
+            "js": "popularWords"
         },
         cover_code={
             'python-3': cover_codes.unwrap_args,
