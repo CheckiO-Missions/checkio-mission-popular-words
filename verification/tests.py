@@ -67,6 +67,15 @@ TESTS = {
                 "will": 2,
                 "no": 1
             }
+        },
+        {
+            "input": [TEXT, ['I', 'wAs', 'ThReE', 'NeAr']],
+            "answer": {
+                'I': 4,
+                'wAs': 3,
+                'ThReE': 0,
+                'NeAr': 0
+            }
         }
     ]
 }
