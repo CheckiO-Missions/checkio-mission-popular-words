@@ -1,0 +1,95 @@
+<body data-author="likewind">
+
+<div class="question-answer">
+    <div class="question">
+        У мене зовсім немає ідей. Допоможи мені!
+    </div>
+    <div class="answer">
+        Тобі необхідно розбити введений текст на окремі слова і підрахувати кількість кожного слова (яке ми шукаємо за
+        наведеними даними) в отриманому списку слів. Потім потрібно створити словник і додати до нього інформацію.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Гаразд, почнемо з початку.
+    </div>
+    <div class="answer">
+        Перш за все, необхідно розбити введений текст на окремі слова. Для цього ти можеш використовувати
+        <a href='https://docs.python.org/3/library/stdtypes.html#str.split'>str.split() метод</a>.
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        Як це буде виглядати в коді?
+    </div>
+    <div class="answer">
+        На цьому етапі функція буде наступною:
+         <pre class="brush: python">
+def popular_words(text, words):
+    splitted_words = text.split()</pre>
+       На практиці цей метод працюватиме наступним чином: 'I am alive'.split() --> ['I', 'am', 'alive']
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        Як підрахувати в отриманому списку кількість слів, які ми шукаємо, і додати цю інформацію до словника?
+    </div>
+    <div class="answer">
+        Щоб підрахувати кількість кожного слова зі списку введених «слів», ти маєш використовувати
+        <a href='https://docs.python.org/3/tutorial/controlflow.html#for-statements'>цикл 'for'</a>. Ти можеш прочитати
+        більше про розрахунок методом «count» у наступному каталозі
+        <a href='https://docs.python.org/3.6/tutorial/datastructures.html#more-on-lists'>"прийоми роботи зі списками"</a>.
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        Як реалізувати ці методи в коді?
+    </div>
+    <div class="answer">
+        Оновлена функція виглядатиме так:
+        <pre class="brush: python">
+def popular_words(text, words):
+    splitted_words = text.split()
+    answer = {}
+    for word in words:
+        answer[word] = splitted_words.count(word)
+    return answer</pre>
+        Це створить ключі відповідей у словнику зі словами зі списку «слів» і призначить їм значення, які покажуть,
+        скільки разів кожне слово зустрічається у вхідному тексті, розбитому на окремі слова (splitted_words).
+    </div>
+</div>    
+    
+<div class="question-answer">
+    <div class="question">
+        Що робити, якщо «один» і «Один» вважаються різними словами?
+    </div>
+    <div class="answer">
+        Тобі потрібно замінити всі великі літери у введеному тексті на малі літери.
+         У цій ситуації допоможе
+        <a href='https://docs.python.org/3/library/stdtypes.html#str.lower'>str.lower() метод</a>.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Як буде виглядати вся функція?
+    </div>
+    <div class="answer">
+        Після додавання відповідного рядка код матиме такий вигляд:
+        <pre class="brush: python">
+def popular_words(text, words):
+    text = text.lower()
+    splitted_words = text.split()
+    answer = {}
+    for word in words:
+        answer[word] = splitted_words.count(word)
+    return answer</pre>
+        Зверніть увагу, що спочатку потрібно перетворити всі великі літери на малі літери в тексті, а потім розбити його на окремі слова.
+    </div>
+</div>
+    
+</body>

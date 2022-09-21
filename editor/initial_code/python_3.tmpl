@@ -1,0 +1,28 @@
+{% comment %}New initial code template{% endcomment %}
+{% block env %}{% endblock env %}
+
+{% block start %}
+def popular_words(text: str, words: list) -> dict:
+    # your code here
+    return None
+{% endblock start %}
+
+{% block example %}
+print('Example:')
+print(popular_words('''
+When I was One
+I had just begun
+When I was Two
+I was nearly new
+''', ['i', 'was', 'three', 'near']))
+{% endblock %}
+
+{% block tests %}
+{% for t in tests %}
+assert {% block call %}popular_words({{t.input|p_args}})
+{% endblock %} == {% block result %}{{t.answer|p}}{% endblock %}{% endfor %}
+{% endblock %}
+
+{% block final %}
+print("The mission is done! Click 'Check Solution' to earn rewards!")
+{% endblock final %}
