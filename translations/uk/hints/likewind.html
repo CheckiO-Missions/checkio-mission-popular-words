@@ -27,7 +27,7 @@
     <div class="answer">
         На цьому етапі функція буде наступною:
          <pre class="brush: python">
-def popular_words(text, words):
+def popular_words(text: str, words: list) -> dict:
     splitted_words = text.split()</pre>
        На практиці цей метод працюватиме наступним чином: 'I am alive'.split() --> ['I', 'am', 'alive']
     </div>
@@ -40,7 +40,7 @@ def popular_words(text, words):
     <div class="answer">
         Щоб підрахувати кількість кожного слова зі списку введених «слів», ти маєш використовувати
         <a href='https://docs.python.org/3/tutorial/controlflow.html#for-statements'>цикл 'for'</a>. Ти можеш прочитати
-        більше про розрахунок методом «count» у наступному каталозі
+        більше про розрахунок методом «count» за посиланням
         <a href='https://docs.python.org/3.6/tutorial/datastructures.html#more-on-lists'>"прийоми роботи зі списками"</a>.
     </div>
 </div>    
@@ -52,7 +52,7 @@ def popular_words(text, words):
     <div class="answer">
         Оновлена функція виглядатиме так:
         <pre class="brush: python">
-def popular_words(text, words):
+def popular_words(text: str, words: list) -> dict:
     splitted_words = text.split()
     answer = {}
     for word in words:
@@ -81,14 +81,15 @@ def popular_words(text, words):
     <div class="answer">
         Після додавання відповідного рядка код матиме такий вигляд:
         <pre class="brush: python">
-def popular_words(text, words):
+def popular_words(text: str, words: list) -> dict:
     text = text.lower()
     splitted_words = text.split()
     answer = {}
     for word in words:
         answer[word] = splitted_words.count(word)
-    return answer</pre>
-        Зверніть увагу, що спочатку потрібно перетворити всі великі літери на малі літери в тексті, а потім розбити його на окремі слова.
+    return answer
+        </pre>
+        Зверни увагу, що спочатку потрібно перетворити всі великі літери на малі літери в тексті, а потім розбити його на окремі слова.
     </div>
 </div>
     

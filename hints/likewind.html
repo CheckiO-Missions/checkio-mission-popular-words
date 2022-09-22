@@ -27,7 +27,7 @@
     <div class="answer">
         At this stage, the function will be as follows:
          <pre class="brush: python">
-def popular_words(text, words):
+def popular_words(text: str, words: list) -> dict:
     splitted_words = text.split()</pre>
        In practice, this method will work in the following way: 'I am alive'.split() --> ['I', 'am', 'alive']
     </div>
@@ -52,7 +52,7 @@ def popular_words(text, words):
     <div class="answer">
         The updated function will look like this:
         <pre class="brush: python">
-def popular_words(text, words):
+def popular_words(text: str, words: list) -> dict:
     splitted_words = text.split()
     answer = {}
     for word in words:
@@ -81,7 +81,7 @@ def popular_words(text, words):
     <div class="answer">
         After adding the corresponding string, code will look like this:
         <pre class="brush: python">
-def popular_words(text, words):
+def popular_words(text: str, words: list) -> dict:
     text = text.lower()
     splitted_words = text.split()
     answer = {}
