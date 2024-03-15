@@ -1,0 +1,96 @@
+<body data-author="likewind">
+
+<div class="question-answer">
+    <div class="question">
+        Mir sind die Ideen ausgegangen. Helfen Sie mir!
+    </div>
+    <div class="answer">
+        Sie müssen den Eingabetext in einzelne Wörter zerlegen und die Anzahl der einzelnen Wörter (nach denen wir suchen) berechnen 
+        nach dem wir suchen) in der resultierenden Wortliste. Dann müssen Sie ein Wörterbuch erstellen und ihm die Informationen hinzufügen.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        OK, lassen Sie uns von vorne beginnen.
+    </div>
+    <div class="answer">
+        Zunächst müssen Sie den eingegebenen Text in einzelne Wörter zerlegen. Hierfür können Sie die Option 
+       <a href='https://docs.python.org/3/library/stdtypes.html#str.split'>str.split() method</a>.
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        Wie sieht das im Code aus?
+    </div>
+    <div class="answer">
+        In diesem Stadium wird die Funktion wie folgt aussehen:
+        <pre class="brush: python">
+def popular_words(text: str, words: list) -> dict:
+    splitted_words = text.split()</pre>
+       In der Praxis wird diese Methode folgendermaßen funktionieren: 'Ich bin am Leben'.split() --&gt; ['Ich', 'bin', 'am Leben']
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        Wie kann man in der resultierenden Liste die Anzahl der gesuchten Wörter zählen und diese Information dem Wörterbuch hinzufügen?
+    </div>
+    <div class="answer">
+        Um die Anzahl der einzelnen Wörter aus der Eingabeliste 'Wörter' zu zählen, müssen Sie
+       <a href='https://docs.python.org/3/tutorial/controlflow.html#for-statements'>'for' loop</a>. Sie können mehr lesen über 
+        die Berechnung mit der Methode 'count' in dem folgenden Katalog von 
+       <a href='https://docs.python.org/3.6/tutorial/datastructures.html#more-on-lists'>methods of working with lists</a>.
+    </div>
+</div>    
+
+<div class="question-answer">
+    <div class="question">
+        Wie implementiert man diese Methoden in Code?
+    </div>
+    <div class="answer">
+        Die aktualisierte Funktion wird wie folgt aussehen:
+       <pre class="brush: python">
+def popular_words(text: str, words: list) -> dict:
+    splitted_words = text.split()
+    answer = {}
+    for word in words:
+        answer[word] = splitted_words.count(word)
+    return answer</pre>
+        Sie erstellt die Antwortschlüssel innerhalb des Wörterbuchs mit Wörtern aus der Liste 'words' und weist ihnen Werte zu, die zeigen 
+        wie oft jedes Wort im Eingabetext in einzelne Wörter zerlegt vorkommt (splitted_words).
+    </div>
+</div>    
+    
+<div class="question-answer">
+    <div class="question">
+        Was ist zu tun, wenn "eins" und "One" als unterschiedliche Wörter betrachtet werden?
+    </div>
+    <div class="answer">
+        Sie müssen alle Großbuchstaben im Eingabetext durch Kleinbuchstaben ersetzen.
+        In dieser Situation hilft Ihnen die
+       <a href='https://docs.python.org/3/library/stdtypes.html#str.lower'>str.lower() method</a>.
+    </div>
+</div>
+
+<div class="question-answer">
+    <div class="question">
+        Wie wird die gesamte Funktion aussehen?
+    </div>
+    <div class="answer">
+        Nachdem Sie die entsprechende Zeichenkette hinzugefügt haben, sieht der Code wie folgt aus:
+       <pre class="brush: python">
+def popular_words(text: str, words: list) -> dict:
+    text = text.lower()
+    splitted_words = text.split()
+    answer = {}
+    for word in words:
+        answer[word] = splitted_words.count(word)
+    return answer</pre>
+        Beachten Sie, dass Sie zunächst alle Großbuchstaben in die Kleinbuchstaben des Textes umwandeln müssen,
+        und ihn dann in einzelne Wörter aufteilen.
+    </div>
+</div>
+    
+</body>
